@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&display=swap" rel="stylesheet"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="./css/style.css">-->
+    <style>
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root
+{
+    scroll-behavior: smooth;
+}
+
+body
+{
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    color: #1d273b;
+    font-weight: 300;
+}
+
+.container
+{
+    width: 90%;
+    max-width: 1200px;
+    overflow: hidden;
+    margin: auto;
+    padding: 60px 0;
+}
+
+header
+{
+    text-align: center;
+    height: 100vh;
+    background-image: linear-gradient(to top, rgba(255, 8, 70, 0.596) 0%, #ffb19986 100%), url(../Images/sv.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.head
+{
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.hamburger
+{
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: #fff;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+}
+
+.clHamburger
+{
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: #fff;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+    z-index: -1;
+}
+
+.hide
+{
+    z-index: 9999999;
+}
+
+.menu-navegation
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30vw;
+    height: 100%;
+    background-image: linear-gradient(45deg, #93a5cf8c 0%, #2049cf98 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: transform .3s ease-in-out;
+    transform: translate(110%);
+    box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+}
+
+.spread
+{
+    transform: translate(0);
+}
+
+.menu-navegation a
+{
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.title
+{
+    color: #fff;
+    font-size:60px;
+    margin-bottom:15px;
+    text-align: center;
+}
+
+.copy
+{
+    font-weight: 300;
+    font-size: 25px;
+}
+
+.subtitle
+{
+    text-align: center;
+    font-weight: 300;
+    color: #8569c7;
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+
+.container-service
+{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container-service img
+{
+    width: 40%;
+}
+
+.checklist-services
+{
+    width: 45%;
+}
+
+.service
+{
+    margin-bottom: 20px;
+}
+
+.n-services
+{
+    margin-bottom: 7px;
+    color: #8569c7;
+}
+
+.number
+{
+    display: inline-block;
+    background-image: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: 700;
+    line-height: 30px;
+    margin-right: 5px;;
+}
+.scheduled
+{
+    width: 50px;
+    background: #f2f2f2f2;
+}
+
+.schedule
+{
+    background: #f2f2f2f2;
+}
+
+.container-schedule
+{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.img-schedule
+{
+    object-fit: cover;
+    width: 100%;
+    display: block;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+    cursor: pointer;
+    text-align: center;
+}
+
+.image-light
+{
+    position:fixed;
+    background:rgba(0, 0, 0, .5);
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(100%);
+    transition: transform 0.2s ease-in-out;
+}
+
+.show
+{
+    transform: translate(0);
+}
+
+.add-image
+{
+    object-fit: cover;
+    width: 60%;
+    border-radius: 10px;
+    transform:scale(0);
+    transition: transform .3s .2s;
+}
+
+.show-image
+{
+    transform: scale(1);
+}
+
+.close
+{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width: 40px;
+    cursor: pointer;
+
+}
+
+.ubicacion
+{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cont-ubi
+{
+    width: 30%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cont-ubi img 
+{
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+
+.n-ubicacion
+{
+    display: inline-block;
+    margin-top: 20px;
+    width: 100%;
+    font-weight: 400;
+}
+
+footer
+{
+    background: #9f8ad0;
+    padding-bottom: 0.1px;
+}
+
+.footer-content
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 60px;
+}
+
+.contact-us
+{
+    width: 40%;
+    color: #fff; 
+}
+
+.brand
+{
+    font-weight: 500;
+    font-size: 40px;
+}
+
+.brand+p
+{
+    font-weight: 500;
+}
+
+.social-media
+{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.social-media-icon
+{
+    display: inline-block;
+    margin-left: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    text-align: center;
+    color: #fff;
+}
+
+.social-media-icon:hover
+{
+    background: #fff;
+    color: #764ba2;
+}
+
+.social-media-icon i
+{
+    font-size: 30px;
+    line-height: 60px;
+}
+
+.line
+{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 2px;
+    background: #fff;
+    margin-bottom: 60px;
+}
+
+@media screen and (max-width: 800px)
+{
+    .menu-navegacion
+    {
+        width: 50vw;
+    }
+    .title
+    {
+        font-size: 40px;
+    }
+    .container-service
+    {
+        width: 80%;
+        margin-bottom: 40px;
+    }
+
+    .checklist-services
+    {
+        width: 60%;
+    }
+
+    .service
+    {
+        margin-bottom: 30px;
+    }
+
+    .add-image
+    {
+        width: 80%;
+    }
+    
+    .img-schedule
+    {
+        width: 45%;
+    }
+
+    .cont-ubi
+    {
+        width: 80%;
+    }
+
+    .footer-content
+    {
+        justify-content: center;
+    }
+
+    .social-media
+    {
+        width: 80%;
+        justify-content:space-evenly;
+    }
+
+    .social-media i
+    {
+        margin-left: 0;
+    }
+    .contact-us
+    {
+        text-align: center;
+        width: 80%;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 500px)
+{
+    .menu-navegacion
+    {
+        width: 65vw;
+    }
+    .title
+    {
+        font-size: 30px;
+    }
+    .container-service
+    {
+        width: 80%;
+        margin-bottom: 40px;
+    }
+
+    .checklist-services
+    {
+        width: 60%;
+    }
+
+    .service
+    {
+        margin-bottom: 30px;
+    }
+
+    .add-image
+    {
+        width: 95%;
+    }
+    
+    .img-schedule
+    {
+        width: 45%;
+    }
+
+    .cont-ubi
+    {
+        width: 80%;
+    }
+
+    .footer-content
+    {
+        justify-content: center;
+    }
+
+    .social-media
+    {
+        width: 100%;
+        justify-content:space-evenly;
+    }
+
+    .social-media i
+    {
+        margin-left: 0;
+    }
+    .contact-us
+    {
+        text-align: center;
+        width: 90%;
+        margin-bottom: 40px;
+    }
+    
+    .title
+    {
+        font-size: 30px;
+    }
+
+    .subtitle
+    {
+        font-size: 30px;
+    }
+
+    .hamburger
+    {
+        top: 20px;
+        right: 20px;
+    }
+}
+    </style>
+    <link rel="icon" href="./incons/135557628_3820903577962476_4022813389086343004_n.ico">
+    <title>Grupo San Gabriel</title>
+</head>
+<body>
+    <header class="header" id="inicio">
+        <img src="./incons/bx-x.svg" class="clHamburger">
+        <img src="./incons/hamburguesa.svg" class="hamburger">
+        <nav class="menu-navegation">
+            <a href="#inicio">Inicio.</a>
+            <a href="#servicio">Servicio.</a>
+            <a href="#Horarios">Horarios de disponibilidad.</a>
+            <a href="#ubicacion">Ubicación.</a>
+            <a href="#contacto">Contactos.</a>
+        </nav>
+        <div class="container head">
+            <h1 class="title">Somos un equipo de trabajo competitivo y dispuesto a darle un servicio con la calidad y responsabilidad que usted merece.</h1>
+            <p class="copy">La bendición es compartida.</p>
+        </div>
+    </header>
+    <main>
+        <section class="services container" id="servicio">
+            <h2 class="subtitle">Nuestro servicios</h2>
+            <div class="container-service">
+                <img src="./Images/Notifications_Monochromatic.svg" alt="notifications">
+                <div class="checklist-services">
+                    <div class="services">
+                        <h3 class="n-services"><span class="number"><i class='bx bx-check'></i></span>Reserva de unidades</h3>
+                        <p>¿Necesitas movilizarte en una fecha específica?, Puedes solicitar viajes programados reservando las unidades por medio de nuestros canales virtuales o en kiosco.</p>
+                    </div>
+                    <br>
+                    <div class="services">
+                        <h3 class="n-services"><span class="number"><i class='bx bx-check'></i></span>Servicio Express</h3>
+                        <p>¿Necesitas transporte?, Nos puedes contactar dentro de nuestros horarios laborales para poder solicitar servicio express</p>
+                    </div>
+                    <br>
+                    <div class="services">
+                        <h3 class="n-services"><span class="number"><i class='bx bx-check'></i></span>Servicio Ejecutivo</h3>
+                        <p>Servicio de transporte ejecutivo a tu necesidades.</p>
+                    </div>
+                    <br>
+                    <div class="services">
+                        <h3 class="n-services"><span class="number"><i class='bx bx-check'></i></span>Pago de recibos varios</h3>
+                        <p>¿Qué pago necesitas realizar?, sin salir de tu casa nosotros te ayudamos a que realices tus pagos a tiempo.</p>
+                    </div>
+                    <br>
+                    <div class="services">
+                        <h3 class="n-services"><span class="number"><i class='bx bx-check'></i></span>Compra en supermercados</h3>
+                        <p>Realizamos las compras del supermecado por ti.</p>
+                    </div>
+                    <br>
+                    <div class="services">
+                        <h3 class="n-services"><span class="number"><i class='bx bx-check'></i></span>Envíos de encomiendas</h3>
+                        <p>Realizamos tus envíos y encomiendas, de forma puntual y segura.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="services container" id="Horarios">
+            <h2 class="subtitle">Nuestros horarios <i class='bx bx-calendar' ></i></h2>
+            <div class="container-service">
+                <img src="./Images/Calendar_Isometric.svg" alt="notifications">
+                    <div class="container-schedule">
+                        <div class="services">
+                            <h3 class="img-schedule" class="Scheduled"><span class="number"><i class='bx bx-alarm'></i></span>Lunes <p>5:00 AM<i class='bx bx-sun' ></i> - 11:00 PM<i class='bx bx-moon' ></i></p></h3>
+                        </div>
+                        <div class="services">
+                            <h3 class="img-schedule" class="Scheduled"><span class="number"><i class='bx bx-alarm'></i></span>Martes <p>5:00 AM<i class='bx bx-sun' ></i> - 11:00 PM<i class='bx bx-moon' ></i></p></h3>
+                        </div>
+                        <div class="services">
+                            <h3 class="img-schedule" class="Scheduled"><span class="number"><i class='bx bx-alarm'></i></span>Miercoles <p>5:00 AM<i class='bx bx-sun' ></i> - 11:00 PM<i class='bx bx-moon' ></i></p></h3>
+                        </div>
+                        <div class="services">
+                            <h3 class="img-schedule" class="Scheduled"><span class="number"><i class='bx bx-alarm'></i></span>Jueves <p>5:00 AM<i class='bx bx-sun' ></i> - 11:00 PM<i class='bx bx-moon' ></i></p></h3>
+                        </div>
+                        <div class="services">
+                            <h3 class="img-schedule" class="Scheduled"><span class="number"><i class='bx bx-alarm'></i></span>Viernes <p>5:00 AM<i class='bx bx-sun' ></i> - 11:00 PM<i class='bx bx-moon' ></i></p></h3>
+                        </div>
+                        <div class="services">
+                            <h3 class="img-schedule" class="Scheduled"><span class="number"><i class='bx bx-alarm'></i></i></span>Sábado <p>5:00 AM<i class='bx bx-sun' ></i> - 11:00 PM<i class='bx bx-moon' ></i></p></h3>
+                        </div>
+                        <div class="services">
+                            <h3 class="img-schedule" class="Scheduled"><span class="number"><i class='bx bx-alarm'></i></span>Domingo <p>5:00 AM<i class='bx bx-sun' ></i> - 11:00 PM<i class='bx bx-moon' ></i></p></h3>
+                        </div>
+                    </div>
+            </div>
+        </section>
+        <section class="image-light">
+            <img src="./incons/close.svg" alt="close" class="close">
+            <img src="#" alt="" class="add-image">
+        </section>
+        <section class="ubicacion" id="ubicacion">
+            <h2 class="subtitle">Estamos ubicados en las siguientes localidades:</h2>
+            <section class="ubicacion">
+                <div class="cont-ubi">
+                    <img src="./Images/Map_Isometric.svg" alt="location">
+                    <h3 class="n-ubicacion">Centro Comercial Las Palmas, Santa Tecla, El Salvador</h3>
+                </div>
+                <div class="cont-ubi">
+                    <img src="./Images/Map_Isometric.svg" alt="location">
+                    <h3 class="n-ubicacion">Centro Comercial Santa Rosa, Calle Real, Santa Tecla</h3>
+                </div>
+            </section>
+        </section>
+    </main>
+    <footer id="contacto">
+        <div class="container footer-content">
+            <div class="contact-us">
+                <h2 class="brand">Grupo San Gabriel</h2>
+                <p>La mejor forma de transportarse.</p>
+            </div>
+            <div class="social-media">
+                <a href="https://www.facebook.com/gruposangabriel" class="social-media-icon" target="_blank">
+                    <i class='bx bxl-facebook-square'></i>
+                </a>
+                <a href="mailto:gruposangabriel2019@gmail.com" class="social-media-icon" target="_blank">
+                    <i class='bx bx-mail-send' ></i>
+                </a>
+                <a href="#" class="social-media-icon">
+                    <i class='bx bxl-telegram'></i>
+                </a>
+                <a href="#" class="social-media-icon" target="_blank">
+                    <i class='bx bxl-whatsapp' ></i>
+                </a>
+            </div>
+        </div>
+        <div class="line"></div>
+    </footer>
+    <script>
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.menu-navegation');
+    const cl = document.querySelector('.clHamburger');
+
+    hamburger.addEventListener('click', ()=>{
+        menu.classList.toggle('spread');
+        cl.classList.toggle('hide');
+    });
+
+    window.addEventListener('click', e=>{
+        if(menu.classList.contains('spread') && e.target != menu && e.target  != hamburger)
+        {
+            menu.classList.toggle('spread');
+            cl.classList.toggle('hide');
+        }
+    });
+    </script>
+        
+</body>
+</html>
